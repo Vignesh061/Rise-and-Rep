@@ -5,7 +5,7 @@ function Home() {
   return (
     <div className="home">
 
-      {/* Hero Section */}
+      {/* Hero Section Rise and Rep webapp*/}
       <section className="hero">
         <div className="hero-content">
           <h1>Transform Your Body. Transform Your Life.</h1>
@@ -22,3 +22,4 @@ function Home() {
 }
 
 export default Home;
+
