@@ -129,7 +129,7 @@ Rise-and-Rep/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/rise-and-rep.git
+git clone https://github.com/Vignesh061/rise-and-rep.git
 cd rise-and-rep
 ```
 
