@@ -129,8 +129,8 @@ Rise-and-Rep/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/Vignesh061/rise-and-rep.git
-cd rise-and-rep
+git clone https://github.com/Vignesh061/Rise-and-Rep.git
+cd Rise-and-Rep
 ```
 
 ### 2. Backend Setup
