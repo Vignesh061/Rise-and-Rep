@@ -5,12 +5,16 @@ from config import Config
 
 # Import blueprints
 from routes.auth_routes import auth_bp
+from routes.admin_routes import admin_bp
 from routes.workout_routes import workout_bp
 from routes.membership_routes import membership_bp
 from routes.trainer_routes import trainer_bp
 
 # Seed data
 from models.trainer_model import seed_trainers
+from models.admin_model import seed_admin
+from models.membership_model import seed_packages
+from models.seed_user import seed_test_user
 
 
 def create_app():
@@ -21,13 +25,17 @@ def create_app():
 
     # Register blueprints
     app.register_blueprint(auth_bp)
+    app.register_blueprint(admin_bp)
     app.register_blueprint(workout_bp)
     app.register_blueprint(membership_bp)
     app.register_blueprint(trainer_bp)
 
-    # Seed trainers on first launch
+    # Seed data on first launch
     with app.app_context():
+        seed_admin()
         seed_trainers()
+        seed_packages()
+        seed_test_user()
 
     # Global error handlers
     @app.errorhandler(404)

@@ -69,8 +69,26 @@ body {
 }
 
 .card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(229, 9, 20, 0.15), 0 8px 10px -6px rgba(229, 9, 20, 0.1);
+  border-color: rgba(229, 9, 20, 0.3);
+}
+
+/* Print Styles for Invoice */
+@media print {
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+  
+  nav, aside, button.print\:hidden {
+    display: none !important;
+  }
+
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 }
 
 /* ── Pulse blob animation ── */
@@ -115,4 +133,60 @@ select option {
 select option:checked {
   background-color: #333333;
   color: #ffffff;
+}
+
+/* ── Toast Animation ── */
+@keyframes toast-enter {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.toast-enter {
+  animation: toast-enter 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Modal Animations ── */
+@keyframes modal-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes modal-backdrop-enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-enter {
+  animation: modal-enter 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-backdrop-enter {
+  animation: modal-backdrop-enter 0.2s ease;
+}
+
+/* ── Line Clamp ── */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

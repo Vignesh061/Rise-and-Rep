@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
-import { FiGrid, FiActivity, FiCreditCard, FiUsers, FiBarChart2, FiSettings } from 'react-icons/fi';
+import { FiGrid, FiActivity, FiCreditCard, FiUsers, FiUser } from 'react-icons/fi';
 
 export default function Sidebar() {
     const { isAdmin } = useAuth();
@@ -16,17 +16,13 @@ export default function Sidebar() {
             <div className="sticky top-20 space-y-1">
                 <p className="text-xs font-semibold uppercase text-slate-500 tracking-wider mb-4 px-4">Menu</p>
                 <NavLink to="/dashboard" className={linkClass}><FiGrid size={18} /> Dashboard</NavLink>
+                <NavLink to="/profile" className={linkClass}><FiUser size={18} /> Profile</NavLink>
                 <NavLink to="/workouts" className={linkClass}><FiActivity size={18} /> Workouts</NavLink>
-                <NavLink to="/membership" className={linkClass}><FiCreditCard size={18} /> Membership</NavLink>
                 <NavLink to="/trainers" className={linkClass}><FiUsers size={18} /> Trainers</NavLink>
-
-                {isAdmin() && (
-                    <>
-                        <p className="text-xs font-semibold uppercase text-slate-500 tracking-wider mt-6 mb-4 px-4">Admin</p>
-                        <NavLink to="/dashboard" className={linkClass}><FiBarChart2 size={18} /> Analytics</NavLink>
-                        <NavLink to="/dashboard" className={linkClass}><FiSettings size={18} /> Settings</NavLink>
-                    </>
-                )}
+                
+                <p className="text-xs font-semibold uppercase text-slate-500 tracking-wider mb-2 mt-6 px-4">Membership</p>
+                <NavLink to="/membership-dashboard" className={linkClass}><FiCreditCard size={18} /> My Membership</NavLink>
+                <NavLink to="/membership" className={linkClass}><FiCreditCard size={18} /> Packages</NavLink>
             </div>
         </aside>
     );
